@@ -30,6 +30,10 @@ export class SignupComponent {
   })
 
   signUpFormSubmit() {
-    console.log(this.signUpForm.value)
+    console.log(this.signUpForm.valid)
+  }
+
+  get f(){
+    return this.signUpForm.controls
   }
 }
