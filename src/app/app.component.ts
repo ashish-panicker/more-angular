@@ -1,13 +1,28 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { SigninComponent } from './users/signin/signin.component';
+import { SignupComponent } from './users/signup/signup.component';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [SigninComponent, SignupComponent, NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'more-angular';
+
+  signInForm: boolean = true
+  signUpForm: boolean = false
+
+
+  loadSignInForm(): void {
+    this.signInForm = true
+    this.signUpForm = false
+  }
+
+  loadSignUpForm(): void {
+    this.signInForm = false
+    this.signUpForm = true
+  }
 }
