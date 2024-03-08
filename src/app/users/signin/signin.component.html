@@ -1,12 +1,29 @@
-<form>
-    <p class="title">Signin to your account</p>
-    <div class="form-group">
-        <label for="userName">Username</label>
-        <input type="text" name="userName" placeholder="Provide your username" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" name="password" placeholder="Provide your pasword" class="form-control" />
-    </div>
-    <button type="submit">Signin</button>
+<form (ngSubmit)="signInSubmit()" #form="ngForm">
+  <p class="title">Signin to your account</p>
+  <div class="form-group">
+    <label for="userName">Username</label>
+    <input
+      type="text"
+      name="userName"
+      placeholder="Provide your username"
+      class="form-control"
+      [(ngModel)]="userInfo.userName"
+      #userName="ngModel"
+    />
+    <!-- [(ngModel)]  banana syntax-->
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      name="password"
+      placeholder="Provide your pasword"
+      class="form-control"
+      [(ngModel)]="userInfo.password"
+      #password="ngModel"
+    />
+  </div>
+  <button type="submit">Signin</button>
+  {{ userName.value }}
+  {{ password.value }}
 </form>
