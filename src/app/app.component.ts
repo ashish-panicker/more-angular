@@ -12,8 +12,8 @@ import { NgIf } from '@angular/common';
 })
 export class AppComponent {
 
-  signInForm: boolean = true
-  signUpForm: boolean = false
+  signInForm: boolean = false
+  signUpForm: boolean = true
 
 
   loadSignInForm(): void {

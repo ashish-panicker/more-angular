@@ -10,6 +10,7 @@
       [(ngModel)]="userInfo.userName"
       #userName="ngModel"
       required
+      [ngClass]="{'invalid' : userName.errors && (userName.touched || userName.dirty)}"
     />
     <div
       class="error"
@@ -29,8 +30,8 @@
       #password="ngModel"
       required
       minlength="4"
+      [ngClass]="{'invalid' : password.errors && (password.touched || password.dirty)}"
       />
-      <!-- [ngClass]="'password.invalid && (password.dirty || password.touched)'? 'invalid' : ''" -->
     
     <div
       class="error"
