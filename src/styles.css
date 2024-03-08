@@ -13,11 +13,11 @@
     border-radius: 4px;
     box-sizing: border-box;
     margin-top: 6px;
-    margin-bottom: 16px;
     resize: vertical;
 }
 
 label {
+    margin-top: 16px;
     font-size: 1.12rem;
     font-weight: 500;
 }
@@ -58,4 +58,20 @@ form {
     font-size: 1.25rem;
     text-transform: uppercase;
     text-align: center;
+}
+
+/* validation styles */
+.error {
+    font-size: 0.75rem;
+    color: rgb(227, 52, 52);
+    margin-bottom: 12px;
+    margin-left: 3px;
+    margin-top: 3px;
+}
+
+.invalid{
+    border: 1px solid rgb(227, 52, 52);
+}
+.valid{
+    border: 1px solid #ccc;
 }

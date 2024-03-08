@@ -1,4 +1,4 @@
-<form (ngSubmit)="signInSubmit()" #form="ngForm">
+<form (ngSubmit)="signInSubmit(form)" #form="ngForm">
   <p class="title">Signin to your account</p>
   <div class="form-group">
     <label for="userName">Username</label>
@@ -9,8 +9,14 @@
       class="form-control"
       [(ngModel)]="userInfo.userName"
       #userName="ngModel"
+      required
     />
-    <!-- [(ngModel)]  banana syntax-->
+    <div
+      class="error"
+      *ngIf="userName.invalid && (userName.dirty || userName.touched)"
+    >
+      Username is mandatory
+    </div>
   </div>
   <div class="form-group">
     <label for="password">Password</label>
@@ -21,9 +27,22 @@
       class="form-control"
       [(ngModel)]="userInfo.password"
       #password="ngModel"
-    />
+      required
+      minlength="4"
+      />
+      <!-- [ngClass]="'password.invalid && (password.dirty || password.touched)'? 'invalid' : ''" -->
+    
+    <div
+      class="error"
+      *ngIf="password.invalid && (password.dirty || password.touched)"
+    >
+      <div *ngIf="password.errors?.['required']">Password is mandatory</div>
+      <div *ngIf="password.errors?.['minlength']">
+        Password must be min 4 chars long
+      </div>
+    </div>
   </div>
   <button type="submit">Signin</button>
-  {{ userName.value }}
-  {{ password.value }}
+  <!-- {{ userName.value }} -->
+  <!-- {{ password.value }} -->
 </form>
